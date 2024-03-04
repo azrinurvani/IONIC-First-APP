@@ -1,0 +1,16 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Daftar Mahasiswa</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item *ngFor="let mhs of student" [routerLink]="['/student',mhs.nim]">
+      <ion-avatar>
+        <ion-img [src]="mhs.foto"></ion-img>
+      </ion-avatar>
+      <ion-label> {{mhs.nama}} - {{mhs.prodi}}</ion-label>
+    </ion-item>
+  </ion-list>  
+</ion-content>

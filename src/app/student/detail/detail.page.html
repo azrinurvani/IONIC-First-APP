@@ -1,0 +1,24 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/student"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Detail Mahasiswa</ion-title>
+    <ion-buttons slot="primary">
+      <ion-button (click)="presentAlert()">
+        <ion-icon name="trash-outline" slot="icon-only"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-img [src]="student?.foto"></ion-img>
+  <ion-list>
+    <ion-item>NIM : {{student?.nim}}</ion-item>
+    <ion-item>Nama : {{student?.nama}}</ion-item>
+    <ion-item>Prodi : {{student?.prodi}}</ion-item>
+    <ion-item *ngFor="let email of student?.email">{{student?.email}}</ion-item>
+    <ion-item *ngFor="let phone of student?.phone">{{student?.phone}}</ion-item>
+  </ion-list>
+</ion-content>
