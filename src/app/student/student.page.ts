@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Student } from './student.model';
-import { StudentService } from './student.service';
 
 @Component({
   selector: 'app-student',
@@ -9,16 +7,15 @@ import { StudentService } from './student.service';
 })
 export class StudentPage implements OnInit {
   
-  student: Student[] = [];
 
-  constructor(private studentService: StudentService) { }
+  constructor() { }
 
-  ngOnInit() { //ketika halaman pertama kali dijalankan
+  ngOnInit() { 
 
   }
 
   ionViewWillEnter(){ //akan dipanggil setiap transisi page
-    this.student = this.studentService.getAllStudents();
+
   }
 
 }

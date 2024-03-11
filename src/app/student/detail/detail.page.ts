@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Student } from '../student.model';
 import { StudentService } from '../student.service';
-import { AlertController, ToastController } from '@ionic/angular';
+import { AlertController, NavController, ToastController } from '@ionic/angular';
 
 @Component({
   selector: 'app-detail',
@@ -18,7 +18,8 @@ export class DetailPage implements OnInit {
     private studentsService : StudentService,
     private router: Router,
     private alertController : AlertController,
-    private toastController : ToastController
+    private toastController : ToastController,
+    private navController : NavController
   ) { 
 
   }
@@ -67,6 +68,15 @@ export class DetailPage implements OnInit {
     });
 
     await toast.present();
+  }
+
+  goBack(){
+    // this.router.navigate([
+    //   '/student','tabs','all'
+    // ])
+    // this.router.navigateByUrl('/student/tabs/all')
+    this.navController.navigateBack('student/tabs/all')
+    // this.navController.pop //bisa digunakan jika page tersebut sudah pasti tidak ada page sebelumnya yang menuju ke page tersebut
   }
   
 

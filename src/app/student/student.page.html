@@ -1,16 +1,12 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>Daftar Mahasiswa</ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content>
-  <ion-list>
-    <ion-item *ngFor="let mhs of student" [routerLink]="['/student',mhs.nim]">
-      <ion-avatar>
-        <ion-img [src]="mhs.foto"></ion-img>
-      </ion-avatar>
-      <ion-label> {{mhs.nama}} - {{mhs.prodi}}</ion-label>
-    </ion-item>
-  </ion-list>  
-</ion-content>
+<ion-tabs>
+    <ion-tab-bar slot="bottom">
+        <ion-tab-button tab="all" tab="all">
+            <ion-label>All Students</ion-label>
+            <ion-icon name="people-outline"></ion-icon>
+        </ion-tab-button>
+        <ion-tab-button tab="advisee">
+            <ion-label>My Advisee</ion-label>
+            <ion-icon name="card"></ion-icon>
+        </ion-tab-button>
+    </ion-tab-bar>
+</ion-tabs>

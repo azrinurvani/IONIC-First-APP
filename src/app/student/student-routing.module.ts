@@ -6,16 +6,28 @@ import { StudentPage } from './student.page';
 const routes: Routes = [
   {
     path: '',
-    component: StudentPage
+    redirectTo: '/student/tabs/all',
+    pathMatch:'full'
   },
   {
-    path: 'edit/:nim',
-    loadChildren: () => import('./edit/edit.module').then( m => m.EditPageModule)
+    path:'tabs',
+    component: StudentPage,
+    children:[
+      {
+        path: 'all',
+        loadChildren: () => import('./all/all.module').then( m => m.AllPageModule)
+      },
+      {
+        path: 'advisee',
+        loadChildren: () => import('./advisee/advisee.module').then( m => m.AdviseePageModule)
+      },
+    ]
   },
+  //untuk path yang menggunakan unique parameter harus berada di paling bawah 
   {
     path: ':nim',
     loadChildren: () => import('./detail/detail.module').then( m => m.DetailPageModule)
-  }
+  },
 ];
 
 @NgModule({
